@@ -1,38 +1,70 @@
-specVersion: 0.0.1
+specVersion: 0.0.2
 schema:
-  file: ./schema.graphql
+    file: ./schema.graphql
 dataSources:
-  - kind: ethereum
-    name: Contract
-    network: mainnet
-    source:
-      address: "0xc944E90C64B2c07662A292be6244BDf05Cda44a7"
-      abi: Contract
-    mapping:
-      kind: ethereum/events
-      apiVersion: 0.0.5
-      language: wasm/assemblyscript
-      entities:
-        - Approval
-        - MinterAdded
-        - MinterRemoved
-        - NewOwnership
-        - NewPendingOwnership
-        - Transfer
-      abis:
-        - name: Contract
-          file: ./abis/Contract.json
-      eventHandlers:
-        - event: Approval(indexed address,indexed address,uint256)
-          handler: handleApproval
-        - event: MinterAdded(indexed address)
-          handler: handleMinterAdded
-        - event: MinterRemoved(indexed address)
-          handler: handleMinterRemoved
-        - event: NewOwnership(indexed address,indexed address)
-          handler: handleNewOwnership
-        - event: NewPendingOwnership(indexed address,indexed address)
-          handler: handleNewPendingOwnership
-        - event: Transfer(indexed address,indexed address,uint256)
-          handler: handleTransfer
-      file: ./src/mapping.ts
+    ## GRT into SuperBadges AAAAA
+
+    - kind: ethereum
+      name: Contract
+      network: mainnet
+      source:
+          address: "0xc944E90C64B2c07662A292be6244BDf05Cda44a7"
+          abi: Contract
+          startBlock: 14372155
+      mapping:
+          kind: ethereum/events
+          apiVersion: 0.0.5
+          language: wasm/assemblyscript
+          entities:
+              - SuperBadge
+          abis:
+              - name: Contract
+                file: ./abis/Contract.json
+          eventHandlers:
+              - event: Approval(indexed address,indexed address,uint256)
+                handler: handleApproval
+              - event: MinterAdded(indexed address)
+                handler: handleMinterAdded
+              - event: MinterRemoved(indexed address)
+                handler: handleMinterRemoved
+              - event: NewOwnership(indexed address,indexed address)
+                handler: handleNewOwnership
+              - event: NewPendingOwnership(indexed address,indexed address)
+                handler: handleNewPendingOwnership
+              - event: Transfer(indexed address,indexed address,uint256)
+                handler: handleTransfer
+          file: ./src/mapping.ts
+
+    ## Balancer into AwesomeBadges BBBBB
+    - kind: ethereum/contract
+      name: Vault
+      network: mainnet
+      source:
+          address: "0xBA12222222228d8Ba445958a75a0704d566BF2C8"
+          abi: Vault
+          startBlock: 14371888
+      mapping:
+          kind: ethereum/events
+          apiVersion: 0.0.5
+          language: wasm/assemblyscript
+          file: ./src/mapping.ts
+          entities:
+              - AwesomeBadge
+          abis:
+              - name: Vault
+                file: ./abis/Vault.json
+              - name: ERC20
+                file: ./abis/ERC20.json
+              - name: WeightedPool
+                file: ./abis/WeightedPool.json
+              - name: StablePool
+                file: ./abis/StablePool.json
+          eventHandlers:
+              - event: Swap(indexed bytes32,indexed address,indexed address,uint256,uint256)
+                handler: handleSwapEvent
+              - event: PoolBalanceChanged(indexed bytes32,indexed address,address[],int256[],uint256[])
+                handler: handleBalanceChange
+              - event: PoolBalanceManaged(indexed bytes32,indexed address,indexed address,int256,int256)
+                handler: handleBalanceManage
+              - event: InternalBalanceChanged(indexed address,indexed address,int256)
+                handler: handleInternalBalanceChange
