@@ -14,19 +14,19 @@ import {
 	NewPendingOwnership,
 	Transfer,
 } from "../generated/Contract/Contract";
-import { SuperBadge, AwesomeBadge } from "../generated/schema";
+import { SuperBadgeGRT, AwesomeBadgeBalancer } from "../generated/schema";
 
 // GRT HANDLERS
 
 export function handleApproval(event: Approval): void {
 	// Entities can be loaded from the store using a string ID; this ID
 	// needs to be unique across all entities of the same type
-	let entity = SuperBadge.load(event.transaction.from.toHexString());
+	let entity = SuperBadgeGRT.load(event.transaction.from.toHexString());
 
 	// Entities only exist after they have been saved to the store;
 	// `null` checks allow to create entities on demand
 	if (!entity) {
-		entity = new SuperBadge(event.transaction.from.toHexString());
+		entity = new SuperBadgeGRT(event.transaction.from.toHexString());
 
 		// 	// Entity fields can be set using simple assignments
 		entity.id = event.params.owner.toHexString();
@@ -77,18 +77,18 @@ export function handleApproval(event: Approval): void {
 // - contract.transferFrom(...)
 
 export function handleMinterAdded(event: MinterAdded): void {
-	let entity = SuperBadge.load(event.transaction.from.toHexString());
+	let entity = SuperBadgeGRT.load(event.transaction.from.toHexString());
 	if (!entity) {
-		entity = new SuperBadge(event.transaction.from.toHexString());
+		entity = new SuperBadgeGRT(event.transaction.from.toHexString());
 		entity.id = event.params.account.toHexString();
 		entity.save();
 	}
 	log.info("AAAAAA handleMinterAdded Triggered' fxn: {}", [entity.id]);
 }
 export function handleMinterRemoved(event: MinterRemoved): void {
-	let entity = SuperBadge.load(event.transaction.from.toHexString());
+	let entity = SuperBadgeGRT.load(event.transaction.from.toHexString());
 	if (!entity) {
-		entity = new SuperBadge(event.transaction.from.toHexString());
+		entity = new SuperBadgeGRT(event.transaction.from.toHexString());
 		entity.id = event.params.account.toHexString();
 		entity.save();
 	}
@@ -96,9 +96,9 @@ export function handleMinterRemoved(event: MinterRemoved): void {
 }
 
 export function handleNewOwnership(event: NewOwnership): void {
-	let entity = SuperBadge.load(event.transaction.from.toHexString());
+	let entity = SuperBadgeGRT.load(event.transaction.from.toHexString());
 	if (!entity) {
-		entity = new SuperBadge(event.transaction.from.toHexString());
+		entity = new SuperBadgeGRT(event.transaction.from.toHexString());
 		entity.id = event.params.from.toHexString();
 		entity.save();
 	}
@@ -106,9 +106,9 @@ export function handleNewOwnership(event: NewOwnership): void {
 }
 
 export function handleNewPendingOwnership(event: NewPendingOwnership): void {
-	let entity = SuperBadge.load(event.transaction.from.toHexString());
+	let entity = SuperBadgeGRT.load(event.transaction.from.toHexString());
 	if (!entity) {
-		entity = new SuperBadge(event.transaction.from.toHexString());
+		entity = new SuperBadgeGRT(event.transaction.from.toHexString());
 		entity.id = event.params.from.toHexString();
 		entity.save();
 	}
@@ -116,9 +116,9 @@ export function handleNewPendingOwnership(event: NewPendingOwnership): void {
 }
 
 export function handleTransfer(event: Transfer): void {
-	let entity = SuperBadge.load(event.transaction.from.toHexString());
+	let entity = SuperBadgeGRT.load(event.transaction.from.toHexString());
 	if (!entity) {
-		entity = new SuperBadge(event.transaction.from.toHexString());
+		entity = new SuperBadgeGRT(event.transaction.from.toHexString());
 		entity.id = event.params.from.toHexString();
 		entity.save();
 	}
@@ -127,9 +127,11 @@ export function handleTransfer(event: Transfer): void {
 
 // BALANCER SUBGRAPH HANDLERS
 export function handleSwapEvent(event: Swap): void {
-	let entity = AwesomeBadge.load(event.transaction.from.toHexString());
+	let entity = AwesomeBadgeBalancer.load(
+		event.transaction.from.toHexString()
+	);
 	if (!entity) {
-		entity = new AwesomeBadge(event.transaction.from.toHexString());
+		entity = new AwesomeBadgeBalancer(event.transaction.from.toHexString());
 		entity.id = event.params.poolId.toHexString();
 		entity.save();
 	}
@@ -137,9 +139,11 @@ export function handleSwapEvent(event: Swap): void {
 }
 
 export function handleBalanceChange(event: PoolBalanceChanged): void {
-	let entity = AwesomeBadge.load(event.transaction.from.toHexString());
+	let entity = AwesomeBadgeBalancer.load(
+		event.transaction.from.toHexString()
+	);
 	if (!entity) {
-		entity = new AwesomeBadge(event.transaction.from.toHexString());
+		entity = new AwesomeBadgeBalancer(event.transaction.from.toHexString());
 		entity.id = event.params.poolId.toHexString();
 		entity.save();
 	}
@@ -147,9 +151,11 @@ export function handleBalanceChange(event: PoolBalanceChanged): void {
 }
 
 export function handleBalanceManage(event: PoolBalanceManaged): void {
-	let entity = AwesomeBadge.load(event.transaction.from.toHexString());
+	let entity = AwesomeBadgeBalancer.load(
+		event.transaction.from.toHexString()
+	);
 	if (!entity) {
-		entity = new AwesomeBadge(event.transaction.from.toHexString());
+		entity = new AwesomeBadgeBalancer(event.transaction.from.toHexString());
 		entity.id = event.params.poolId.toHexString();
 		entity.save();
 	}
@@ -159,9 +165,11 @@ export function handleBalanceManage(event: PoolBalanceManaged): void {
 export function handleInternalBalanceChange(
 	event: InternalBalanceChanged
 ): void {
-	let entity = AwesomeBadge.load(event.transaction.from.toHexString());
+	let entity = AwesomeBadgeBalancer.load(
+		event.transaction.from.toHexString()
+	);
 	if (!entity) {
-		entity = new AwesomeBadge(event.transaction.from.toHexString());
+		entity = new AwesomeBadgeBalancer(event.transaction.from.toHexString());
 		entity.id = event.params.user.toHexString();
 		entity.save();
 	}

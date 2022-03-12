@@ -1,9 +1,9 @@
-type SuperBadge @entity {
+type SuperBadgeGRT @entity {
 	id: ID!
 	value: BigInt
 }
 
-type AwesomeBadge @entity {
+type AwesomeBadgeBalancer @entity {
 	id: ID!
 	value: BigInt
 }

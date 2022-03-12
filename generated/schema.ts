@@ -11,7 +11,7 @@ import {
   BigDecimal
 } from "@graphprotocol/graph-ts";
 
-export class SuperBadge extends Entity {
+export class SuperBadgeGRT extends Entity {
   constructor(id: string) {
     super();
     this.set("id", Value.fromString(id));
@@ -19,19 +19,19 @@ export class SuperBadge extends Entity {
 
   save(): void {
     let id = this.get("id");
-    assert(id != null, "Cannot save SuperBadge entity without an ID");
+    assert(id != null, "Cannot save SuperBadgeGRT entity without an ID");
     if (id) {
       assert(
         id.kind == ValueKind.STRING,
-        "Cannot save SuperBadge entity with non-string ID. " +
+        "Cannot save SuperBadgeGRT entity with non-string ID. " +
           'Considering using .toHex() to convert the "id" to a string.'
       );
-      store.set("SuperBadge", id.toString(), this);
+      store.set("SuperBadgeGRT", id.toString(), this);
     }
   }
 
-  static load(id: string): SuperBadge | null {
-    return changetype<SuperBadge | null>(store.get("SuperBadge", id));
+  static load(id: string): SuperBadgeGRT | null {
+    return changetype<SuperBadgeGRT | null>(store.get("SuperBadgeGRT", id));
   }
 
   get id(): string {
@@ -61,7 +61,7 @@ export class SuperBadge extends Entity {
   }
 }
 
-export class AwesomeBadge extends Entity {
+export class AwesomeBadgeBalancer extends Entity {
   constructor(id: string) {
     super();
     this.set("id", Value.fromString(id));
@@ -69,19 +69,21 @@ export class AwesomeBadge extends Entity {
 
   save(): void {
     let id = this.get("id");
-    assert(id != null, "Cannot save AwesomeBadge entity without an ID");
+    assert(id != null, "Cannot save AwesomeBadgeBalancer entity without an ID");
     if (id) {
       assert(
         id.kind == ValueKind.STRING,
-        "Cannot save AwesomeBadge entity with non-string ID. " +
+        "Cannot save AwesomeBadgeBalancer entity with non-string ID. " +
           'Considering using .toHex() to convert the "id" to a string.'
       );
-      store.set("AwesomeBadge", id.toString(), this);
+      store.set("AwesomeBadgeBalancer", id.toString(), this);
     }
   }
 
-  static load(id: string): AwesomeBadge | null {
-    return changetype<AwesomeBadge | null>(store.get("AwesomeBadge", id));
+  static load(id: string): AwesomeBadgeBalancer | null {
+    return changetype<AwesomeBadgeBalancer | null>(
+      store.get("AwesomeBadgeBalancer", id)
+    );
   }
 
   get id(): string {

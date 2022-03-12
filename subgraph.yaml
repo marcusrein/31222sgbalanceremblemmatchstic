@@ -16,7 +16,7 @@ dataSources:
           apiVersion: 0.0.5
           language: wasm/assemblyscript
           entities:
-              - SuperBadge
+              - SuperBadgeGRT
           abis:
               - name: Contract
                 file: ./abis/Contract.json
@@ -49,7 +49,7 @@ dataSources:
           language: wasm/assemblyscript
           file: ./src/mapping.ts
           entities:
-              - AwesomeBadge
+              - AwesomeBadgeBalancer
           abis:
               - name: Vault
                 file: ./abis/Vault.json
