@@ -84,7 +84,7 @@ dataSources:
           kind: ethereum/events
           apiVersion: 0.0.6
           language: wasm/assemblyscript
-          file: ./src/mappings/balancerPoolFactory.ts
+          file: ./src/mapping.ts
           entities:
               - AwesomeBadgeBalancer
           abis:
@@ -111,7 +111,7 @@ dataSources:
           kind: ethereum/events
           apiVersion: 0.0.6
           language: wasm/assemblyscript
-          file: ./src/mappings/balancerPoolFactory.ts
+          file: ./src/mapping.ts
           entities:
               - AwesomeBadgeBalancer
           abis:
@@ -138,7 +138,7 @@ dataSources:
           kind: ethereum/events
           apiVersion: 0.0.6
           language: wasm/assemblyscript
-          file: ./src/mappings/balancerPoolFactory.ts
+          file: ./src/mapping.ts
           entities:
               - AwesomeBadgeBalancer
           abis:
@@ -165,7 +165,7 @@ dataSources:
           kind: ethereum/events
           apiVersion: 0.0.6
           language: wasm/assemblyscript
-          file: ./src/mappings/balancerPoolFactory.ts
+          file: ./src/mapping.ts
           entities:
               - AwesomeBadgeBalancer
           abis:
@@ -194,7 +194,7 @@ dataSources:
           kind: ethereum/events
           apiVersion: 0.0.6
           language: wasm/assemblyscript
-          file: ./src/mappings/balancerPoolFactory.ts
+          file: ./src/mapping.ts
           entities:
               - AwesomeBadgeBalancer
           abis:
@@ -223,7 +223,7 @@ dataSources:
           kind: ethereum/events
           apiVersion: 0.0.6
           language: wasm/assemblyscript
-          file: ./src/mappings/balancerPoolFactory.ts
+          file: ./src/mapping.ts
           entities:
               - AwesomeBadgeBalancer
           abis:
@@ -252,7 +252,7 @@ dataSources:
           kind: ethereum/events
           apiVersion: 0.0.6
           language: wasm/assemblyscript
-          file: ./src/mappings/balancerPoolFactory.ts
+          file: ./src/mapping.ts
           entities:
               - AwesomeBadgeBalancer
           abis:
@@ -281,7 +281,7 @@ dataSources:
           kind: ethereum/events
           apiVersion: 0.0.6
           language: wasm/assemblyscript
-          file: ./src/mappings/balancerPoolFactory.ts
+          file: ./src/mapping.ts
           entities:
               - AwesomeBadgeBalancer
           abis:
@@ -308,7 +308,7 @@ dataSources:
           kind: ethereum/events
           apiVersion: 0.0.6
           language: wasm/assemblyscript
-          file: ./src/mappings/balancerPoolFactory.ts
+          file: ./src/mapping.ts
           entities:
               - AwesomeBadgeBalancer
           abis:
@@ -337,7 +337,7 @@ dataSources:
           kind: ethereum/events
           apiVersion: 0.0.6
           language: wasm/assemblyscript
-          file: ./src/mappings/balancerPoolFactory.ts
+          file: ./src/mapping.ts
           entities:
               - AwesomeBadgeBalancer
           abis:

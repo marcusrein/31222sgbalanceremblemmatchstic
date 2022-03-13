@@ -1,3 +1,4 @@
+import { PoolCreated } from "./../generated/ConvergentPoolFactory/ConvergentPoolFactory";
 import {
 	InternalBalanceChanged,
 	PoolBalanceChanged,
@@ -131,4 +132,110 @@ export function handleInternalBalanceChange(
 	log.info("BALANCER handleInternalBalanceChange Triggered' fxn: {}", [
 		entity.id,
 	]);
+}
+
+// NEW HANDLERS INPUTTED THAT HAVE NOT BEEN TESTED BELOW THIS VVVV
+
+export function handleNewWeightedPool(event: PoolCreated): void {
+	let entity = AwesomeBadgeBalancer.load(
+		event.transaction.from.toHexString()
+	);
+	if (!entity) {
+		entity = new AwesomeBadgeBalancer(event.transaction.from.toHexString());
+		entity.id = event.params.pool.toHexString();
+		entity.save();
+	}
+	log.info("BALANCER handleNewWeightedPool Triggered' fxn: {}", [entity.id]);
+}
+
+export function handleNewStablePool(event: PoolCreated): void {
+	let entity = AwesomeBadgeBalancer.load(
+		event.transaction.from.toHexString()
+	);
+	if (!entity) {
+		entity = new AwesomeBadgeBalancer(event.transaction.from.toHexString());
+		entity.id = event.params.pool.toHexString();
+		entity.save();
+	}
+	log.info("BALANCER handleNewStablePool Triggered' fxn: {}", [entity.id]);
+}
+
+export function handleNewMetaStablePool(event: PoolCreated): void {
+	let entity = AwesomeBadgeBalancer.load(
+		event.transaction.from.toHexString()
+	);
+	if (!entity) {
+		entity = new AwesomeBadgeBalancer(event.transaction.from.toHexString());
+		entity.id = event.params.pool.toHexString();
+		entity.save();
+	}
+	log.info("BALANCER handleNewMetaStablePool Triggered' fxn: {}", [
+		entity.id,
+	]);
+}
+
+export function handleNewLiquidityBootstrappingPool(event: PoolCreated): void {
+	let entity = AwesomeBadgeBalancer.load(
+		event.transaction.from.toHexString()
+	);
+	if (!entity) {
+		entity = new AwesomeBadgeBalancer(event.transaction.from.toHexString());
+		entity.id = event.params.pool.toHexString();
+		entity.save();
+	}
+	log.info(
+		"BALANCER handleNewLiquidityBootstrappingPool Triggered' fxn: {}",
+		[entity.id]
+	);
+}
+
+export function handleNewInvestmentPool(event: PoolCreated): void {
+	let entity = AwesomeBadgeBalancer.load(
+		event.transaction.from.toHexString()
+	);
+	if (!entity) {
+		entity = new AwesomeBadgeBalancer(event.transaction.from.toHexString());
+		entity.id = event.params.pool.toHexString();
+		entity.save();
+	}
+	log.info(
+		"BALANCER handleNewLiquidityBootstrappingPool Triggered' fxn: {}",
+		[entity.id]
+	);
+}
+
+export function handleNewCCPPool(event: PoolCreated): void {
+	let entity = AwesomeBadgeBalancer.load(
+		event.transaction.from.toHexString()
+	);
+	if (!entity) {
+		entity = new AwesomeBadgeBalancer(event.transaction.from.toHexString());
+		entity.id = event.params.pool.toHexString();
+		entity.save();
+	}
+	log.info("BALANCER handleNewCCPPool Triggered' fxn: {}", [entity.id]);
+}
+
+export function handleNewStablePhantomPool(event: PoolCreated): void {
+	let entity = AwesomeBadgeBalancer.load(
+		event.transaction.from.toHexString()
+	);
+	if (!entity) {
+		entity = new AwesomeBadgeBalancer(event.transaction.from.toHexString());
+		entity.id = event.params.pool.toHexString();
+		entity.save();
+	}
+	log.info("BALANCER handleNewCCPPool Triggered' fxn: {}", [entity.id]);
+}
+
+export function handleNewLinearPool(event: PoolCreated): void {
+	let entity = AwesomeBadgeBalancer.load(
+		event.transaction.from.toHexString()
+	);
+	if (!entity) {
+		entity = new AwesomeBadgeBalancer(event.transaction.from.toHexString());
+		entity.id = event.params.pool.toHexString();
+		entity.save();
+	}
+	log.info("BALANCER handleNewLinearPool Triggered' fxn: {}", [entity.id]);
 }
