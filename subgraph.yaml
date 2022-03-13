@@ -82,7 +82,7 @@ dataSources:
           startBlock: 14233733
       mapping:
           kind: ethereum/events
-          apiVersion: 0.0.6
+          apiVersion: 0.0.5
           language: wasm/assemblyscript
           file: ./src/mapping.ts
           entities:
@@ -109,7 +109,7 @@ dataSources:
           startBlock: 13621673
       mapping:
           kind: ethereum/events
-          apiVersion: 0.0.6
+          apiVersion: 0.0.5
           language: wasm/assemblyscript
           file: ./src/mapping.ts
           entities:
@@ -136,7 +136,7 @@ dataSources:
           startBlock: 12816304
       mapping:
           kind: ethereum/events
-          apiVersion: 0.0.6
+          apiVersion: 0.0.5
           language: wasm/assemblyscript
           file: ./src/mapping.ts
           entities:
@@ -163,7 +163,7 @@ dataSources:
           startBlock: 13846138
       mapping:
           kind: ethereum/events
-          apiVersion: 0.0.6
+          apiVersion: 0.0.5
           language: wasm/assemblyscript
           file: ./src/mapping.ts
           entities:
@@ -192,7 +192,7 @@ dataSources:
           startBlock: 13773565
       mapping:
           kind: ethereum/events
-          apiVersion: 0.0.6
+          apiVersion: 0.0.5
           language: wasm/assemblyscript
           file: ./src/mapping.ts
           entities:
@@ -221,7 +221,7 @@ dataSources:
           startBlock: 13842783
       mapping:
           kind: ethereum/events
-          apiVersion: 0.0.6
+          apiVersion: 0.0.5
           language: wasm/assemblyscript
           file: ./src/mapping.ts
           entities:
@@ -250,7 +250,7 @@ dataSources:
           startBlock: 13618508
       mapping:
           kind: ethereum/events
-          apiVersion: 0.0.6
+          apiVersion: 0.0.5
           language: wasm/assemblyscript
           file: ./src/mapping.ts
           entities:
@@ -279,7 +279,7 @@ dataSources:
           startBlock: 13805752
       mapping:
           kind: ethereum/events
-          apiVersion: 0.0.6
+          apiVersion: 0.0.5
           language: wasm/assemblyscript
           file: ./src/mapping.ts
           entities:
@@ -306,7 +306,7 @@ dataSources:
           startBlock: 13767526
       mapping:
           kind: ethereum/events
-          apiVersion: 0.0.6
+          apiVersion: 0.0.5
           language: wasm/assemblyscript
           file: ./src/mapping.ts
           entities:
@@ -335,7 +335,7 @@ dataSources:
           startBlock: 13799621
       mapping:
           kind: ethereum/events
-          apiVersion: 0.0.6
+          apiVersion: 0.0.5
           language: wasm/assemblyscript
           file: ./src/mapping.ts
           entities:
