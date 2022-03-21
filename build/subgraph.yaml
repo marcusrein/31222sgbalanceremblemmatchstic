@@ -8,13 +8,13 @@ dataSources:
     source:
       address: "0xc944E90C64B2c07662A292be6244BDf05Cda44a7"
       abi: Contract
-      startBlock: 14372155
+      startBlock: 14376012
     mapping:
       kind: ethereum/events
-      apiVersion: 0.0.5
+      apiVersion: 0.0.6
       language: wasm/assemblyscript
       entities:
-        - SuperBadgeGRT
+        - SuperBadgeGrt
       abis:
         - name: Contract
           file: Contract/abis/Contract.json
@@ -38,10 +38,10 @@ dataSources:
     source:
       address: "0xBA12222222228d8Ba445958a75a0704d566BF2C8"
       abi: Vault
-      startBlock: 14371888
+      startBlock: 14377160
     mapping:
       kind: ethereum/events
-      apiVersion: 0.0.5
+      apiVersion: 0.0.6
       language: wasm/assemblyscript
       file: Contract/Contract.wasm
       entities:
@@ -70,10 +70,10 @@ dataSources:
     source:
       address: "0x8E9aa87E45e92bad84D5F8DD1bff34Fb92637dE9"
       abi: WeightedPoolFactory
-      startBlock: 14233733
+      startBlock: 14361099
     mapping:
       kind: ethereum/events
-      apiVersion: 0.0.5
+      apiVersion: 0.0.6
       language: wasm/assemblyscript
       file: Contract/Contract.wasm
       entities:
@@ -90,247 +90,3 @@ dataSources:
       eventHandlers:
         - event: PoolCreated(indexed address)
           handler: handleNewWeightedPool
-  - kind: ethereum/contract
-    name: WeightedPool2TokenFactory
-    network: mainnet
-    source:
-      address: "0xA5bf2ddF098bb0Ef6d120C98217dD6B141c74EE0"
-      abi: WeightedPoolFactory
-      startBlock: 13621673
-    mapping:
-      kind: ethereum/events
-      apiVersion: 0.0.5
-      language: wasm/assemblyscript
-      file: Contract/Contract.wasm
-      entities:
-        - AwesomeBadgeBalancer
-      abis:
-        - name: Vault
-          file: WeightedPool2TokenFactory/abis/Vault.json
-        - name: ERC20
-          file: WeightedPool2TokenFactory/abis/ERC20.json
-        - name: WeightedPoolFactory
-          file: WeightedPool2TokenFactory/abis/WeightedPoolFactory.json
-        - name: WeightedPool
-          file: WeightedPool2TokenFactory/abis/WeightedPool.json
-      eventHandlers:
-        - event: PoolCreated(indexed address)
-          handler: handleNewWeightedPool
-  - kind: ethereum/contract
-    name: StablePoolFactory
-    network: mainnet
-    source:
-      address: "0xc66Ba2B6595D3613CCab350C886aCE23866EDe24"
-      abi: StablePoolFactory
-      startBlock: 12816304
-    mapping:
-      kind: ethereum/events
-      apiVersion: 0.0.5
-      language: wasm/assemblyscript
-      file: Contract/Contract.wasm
-      entities:
-        - AwesomeBadgeBalancer
-      abis:
-        - name: Vault
-          file: StablePoolFactory/abis/Vault.json
-        - name: ERC20
-          file: StablePoolFactory/abis/ERC20.json
-        - name: StablePoolFactory
-          file: StablePoolFactory/abis/StablePoolFactory.json
-        - name: StablePool
-          file: StablePoolFactory/abis/StablePool.json
-      eventHandlers:
-        - event: PoolCreated(indexed address)
-          handler: handleNewStablePool
-  - kind: ethereum/contract
-    name: MetaStablePoolFactory
-    network: mainnet
-    source:
-      address: "0x67d27634E44793fE63c467035E31ea8635117cd4"
-      abi: MetaStablePoolFactory
-      startBlock: 13846138
-    mapping:
-      kind: ethereum/events
-      apiVersion: 0.0.5
-      language: wasm/assemblyscript
-      file: Contract/Contract.wasm
-      entities:
-        - AwesomeBadgeBalancer
-      abis:
-        - name: Vault
-          file: MetaStablePoolFactory/abis/Vault.json
-        - name: ERC20
-          file: MetaStablePoolFactory/abis/ERC20.json
-        - name: MetaStablePoolFactory
-          file: MetaStablePoolFactory/abis/MetaStablePoolFactory.json
-        - name: StablePool
-          file: MetaStablePoolFactory/abis/StablePool.json
-        - name: MetaStablePool
-          file: MetaStablePoolFactory/abis/MetaStablePool.json
-      eventHandlers:
-        - event: PoolCreated(indexed address)
-          handler: handleNewMetaStablePool
-  - kind: ethereum/contract
-    name: LiquidityBootstrappingPoolFactory
-    network: mainnet
-    source:
-      address: "0x751A0bC0e3f75b38e01Cf25bFCE7fF36DE1C87DE"
-      abi: LiquidityBootstrappingPoolFactory
-      startBlock: 13773565
-    mapping:
-      kind: ethereum/events
-      apiVersion: 0.0.5
-      language: wasm/assemblyscript
-      file: Contract/Contract.wasm
-      entities:
-        - AwesomeBadgeBalancer
-      abis:
-        - name: Vault
-          file: LiquidityBootstrappingPoolFactory/abis/Vault.json
-        - name: ERC20
-          file: LiquidityBootstrappingPoolFactory/abis/ERC20.json
-        - name: WeightedPool
-          file: LiquidityBootstrappingPoolFactory/abis/WeightedPool.json
-        - name: LiquidityBootstrappingPoolFactory
-          file: LiquidityBootstrappingPoolFactory/abis/LiquidityBootstrappingPoolFactory.json
-        - name: LiquidityBootstrappingPool
-          file: LiquidityBootstrappingPoolFactory/abis/LiquidityBootstrappingPool.json
-      eventHandlers:
-        - event: PoolCreated(indexed address)
-          handler: handleNewLiquidityBootstrappingPool
-  - kind: ethereum/contract
-    name: TempLiquidityBootstrappingPoolFactory
-    network: mainnet
-    source:
-      address: "0x0F3e0c4218b7b0108a3643cFe9D3ec0d4F57c54e"
-      abi: LiquidityBootstrappingPoolFactory
-      startBlock: 13842783
-    mapping:
-      kind: ethereum/events
-      apiVersion: 0.0.5
-      language: wasm/assemblyscript
-      file: Contract/Contract.wasm
-      entities:
-        - AwesomeBadgeBalancer
-      abis:
-        - name: Vault
-          file: TempLiquidityBootstrappingPoolFactory/abis/Vault.json
-        - name: ERC20
-          file: TempLiquidityBootstrappingPoolFactory/abis/ERC20.json
-        - name: WeightedPool
-          file: TempLiquidityBootstrappingPoolFactory/abis/WeightedPool.json
-        - name: LiquidityBootstrappingPoolFactory
-          file: TempLiquidityBootstrappingPoolFactory/abis/LiquidityBootstrappingPoolFactory.json
-        - name: LiquidityBootstrappingPool
-          file: TempLiquidityBootstrappingPoolFactory/abis/LiquidityBootstrappingPool.json
-      eventHandlers:
-        - event: PoolCreated(indexed address)
-          handler: handleNewLiquidityBootstrappingPool
-  - kind: ethereum/contract
-    name: InvestmentPoolFactory
-    network: mainnet
-    source:
-      address: "0x48767F9F868a4A7b86A90736632F6E44C2df7fa9"
-      abi: InvestmentPoolFactory
-      startBlock: 13618508
-    mapping:
-      kind: ethereum/events
-      apiVersion: 0.0.5
-      language: wasm/assemblyscript
-      file: Contract/Contract.wasm
-      entities:
-        - AwesomeBadgeBalancer
-      abis:
-        - name: Vault
-          file: InvestmentPoolFactory/abis/Vault.json
-        - name: ERC20
-          file: InvestmentPoolFactory/abis/ERC20.json
-        - name: WeightedPool
-          file: InvestmentPoolFactory/abis/WeightedPool.json
-        - name: InvestmentPoolFactory
-          file: InvestmentPoolFactory/abis/InvestmentPoolFactory.json
-        - name: InvestmentPool
-          file: InvestmentPoolFactory/abis/InvestmentPool.json
-      eventHandlers:
-        - event: PoolCreated(indexed address)
-          handler: handleNewInvestmentPool
-  - kind: ethereum/contract
-    name: ConvergentPoolFactory
-    network: mainnet
-    source:
-      address: "0xb7561f547F3207eDb42A6AfA42170Cd47ADD17BD"
-      abi: ConvergentPoolFactory
-      startBlock: 13805752
-    mapping:
-      kind: ethereum/events
-      apiVersion: 0.0.5
-      language: wasm/assemblyscript
-      file: Contract/Contract.wasm
-      entities:
-        - AwesomeBadgeBalancer
-      abis:
-        - name: Vault
-          file: ConvergentPoolFactory/abis/Vault.json
-        - name: ERC20
-          file: ConvergentPoolFactory/abis/ERC20.json
-        - name: ConvergentPoolFactory
-          file: ConvergentPoolFactory/abis/ConvergentPoolFactory.json
-        - name: ConvergentCurvePool
-          file: ConvergentPoolFactory/abis/ConvergentCurvePool.json
-      eventHandlers:
-        - event: PoolCreated(indexed address)
-          handler: handleNewCCPPool
-  - kind: ethereum/contract
-    name: StablePhantomPoolFactory
-    network: mainnet
-    source:
-      address: "0xb08E16cFc07C684dAA2f93C70323BAdb2A6CBFd2"
-      abi: StablePhantomPoolFactory
-      startBlock: 13767526
-    mapping:
-      kind: ethereum/events
-      apiVersion: 0.0.5
-      language: wasm/assemblyscript
-      file: Contract/Contract.wasm
-      entities:
-        - AwesomeBadgeBalancer
-      abis:
-        - name: Vault
-          file: StablePhantomPoolFactory/abis/Vault.json
-        - name: ERC20
-          file: StablePhantomPoolFactory/abis/ERC20.json
-        - name: StablePhantomPoolFactory
-          file: StablePhantomPoolFactory/abis/StablePhantomPoolFactory.json
-        - name: StablePool
-          file: StablePhantomPoolFactory/abis/StablePool.json
-        - name: StablePhantomPool
-          file: StablePhantomPoolFactory/abis/StablePhantomPool.json
-      eventHandlers:
-        - event: PoolCreated(indexed address)
-          handler: handleNewStablePhantomPool
-  - kind: ethereum/contract
-    name: AaveLinearPoolFactory
-    network: mainnet
-    source:
-      address: "0xD7FAD3bd59D6477cbe1BE7f646F7f1BA25b230f8"
-      abi: AaveLinearPoolFactory
-      startBlock: 13799621
-    mapping:
-      kind: ethereum/events
-      apiVersion: 0.0.5
-      language: wasm/assemblyscript
-      file: Contract/Contract.wasm
-      entities:
-        - AwesomeBadgeBalancer
-      abis:
-        - name: Vault
-          file: AaveLinearPoolFactory/abis/Vault.json
-        - name: ERC20
-          file: AaveLinearPoolFactory/abis/ERC20.json
-        - name: AaveLinearPoolFactory
-          file: AaveLinearPoolFactory/abis/AaveLinearPoolFactory.json
-        - name: AaveLinearPool
-          file: AaveLinearPoolFactory/abis/AaveLinearPool.json
-      eventHandlers:
-        - event: PoolCreated(indexed address)
-          handler: handleNewLinearPool

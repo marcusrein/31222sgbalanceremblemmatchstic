@@ -11,7 +11,7 @@ import {
   BigDecimal
 } from "@graphprotocol/graph-ts";
 
-export class SuperBadgeGRT extends Entity {
+export class SuperBadgeGrt extends Entity {
   constructor(id: string) {
     super();
     this.set("id", Value.fromString(id));
@@ -19,19 +19,19 @@ export class SuperBadgeGRT extends Entity {
 
   save(): void {
     let id = this.get("id");
-    assert(id != null, "Cannot save SuperBadgeGRT entity without an ID");
+    assert(id != null, "Cannot save SuperBadgeGrt entity without an ID");
     if (id) {
       assert(
         id.kind == ValueKind.STRING,
-        "Cannot save SuperBadgeGRT entity with non-string ID. " +
+        "Cannot save SuperBadgeGrt entity with non-string ID. " +
           'Considering using .toHex() to convert the "id" to a string.'
       );
-      store.set("SuperBadgeGRT", id.toString(), this);
+      store.set("SuperBadgeGrt", id.toString(), this);
     }
   }
 
-  static load(id: string): SuperBadgeGRT | null {
-    return changetype<SuperBadgeGRT | null>(store.get("SuperBadgeGRT", id));
+  static load(id: string): SuperBadgeGrt | null {
+    return changetype<SuperBadgeGrt | null>(store.get("SuperBadgeGrt", id));
   }
 
   get id(): string {

@@ -1,4 +1,4 @@
-type SuperBadgeGRT @entity {
+type SuperBadgeGrt @entity {
 	id: ID!
 	value: BigInt
 }
