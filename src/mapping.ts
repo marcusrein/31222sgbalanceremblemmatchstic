@@ -20,6 +20,13 @@ import { SuperBadgeGrt, AwesomeBadgeBalancer } from "../generated/schema";
 // GRT HANDLERS
 
 export function handleApproval(event: Approval): void {
+	log.info("Hello World", []);
+	log.info("This is the Approval data' fxn: {}{}{}", [
+		event.params.owner.toHexString(),
+		event.params.spender.toHexString(),
+		event.params.value.toHexString(),
+	]);
+
 	let entity = SuperBadgeGrt.load(event.transaction.from.toHexString());
 
 	if (!entity) {

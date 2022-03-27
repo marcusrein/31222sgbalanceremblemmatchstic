@@ -1,4 +1,4 @@
-import { ethereum } from "@graphprotocol/graph-ts";
+import { ethereum, BigInt } from "@graphprotocol/graph-ts";
 // import { SuperBadgeGrt } from "../generated/schema";
 import { newMockEvent, assert, test } from "matchstick-as/assembly/index";
 import { handleApproval } from "../src/mapping";
@@ -9,31 +9,38 @@ export function createNewApprovalEvent(
 	spender: string,
 	value: string
 ): Approval {
+	// takes the Approval class and creates a blueprint
+	// creates a newApprovalEvent that is a mockevent()
+
 	let newApprovalEvent = changetype<Approval>(newMockEvent());
 
 	newApprovalEvent.parameters = new Array();
 
-	let newOwner = new ethereum.EventParam("id", ethereum.Value.fromI32(owner));
-	let newSpender = new ethereum.EventParam(
+	let ownerParam = new ethereum.EventParam(
 		"id",
-		ethereum.Value.fromString(spender)
+		ethereum.Value.fromString(owner)
 	);
+	let spenderParam = new ethereum.EventParam("id", spender);
 	let valueParam = new ethereum.EventParam(
 		"value",
 		ethereum.Value.fromString(value)
 	);
 
-	newApprovalEvent.parameters.push(newOwner);
+	newApprovalEvent.parameters.push(ownerParam);
+	newApprovalEvent.parameters.push(spenderParam);
 	newApprovalEvent.parameters.push(valueParam);
-	newApprovalEvent.parameters.push(newSpender);
 
 	return newApprovalEvent;
 }
 
 test("Can handle new Approval event", () => {
-	let newApprovalEvent = createNewApprovalEvent(0x1234, "9999", "8888");
+	let newApprovalEvent = createNewApprovalEvent(
+		"0xc944e90c64b2c07662a292be6244bdf05cda44a7",
+		"0xc944E90C64B2c07662A292be6244BDf05Cda44a7",
+		"555"
+	);
 
 	handleApproval(newApprovalEvent);
 
-	assert.fieldEquals("SuperBadgeGRT", "0x1234", "Value", "9999");
+	assert.fieldEquals("SuperBadgeGrt", "0x1234", "value", "555");
 });
